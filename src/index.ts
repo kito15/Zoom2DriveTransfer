@@ -12,7 +12,7 @@ const desiredTimeZone = 'America/New_York';
 const currentDateTime = moment().tz(desiredTimeZone);
 
 // Set the desired time of 10 am in the desired time zone
-const desiredTime = currentDateTime.clone().set({ hour: 10, minute: 0, second: 0 });
+const desiredTime = currentDateTime.clone().set({ hour: 12, minute: 0, second: 0 });
 
 // Schedule cron job to run every 45 minutes
 cron.schedule('*/45 * * * *', () => {
