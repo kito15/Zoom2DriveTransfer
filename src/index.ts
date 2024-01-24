@@ -37,3 +37,14 @@ cron.schedule(desiredTime.format('m H * * *'), () => {
       console.error(`An error occurred while executing Daily URL ${urlDaily}: ${error}`);
     });
 });
+
+cron.schedule('0 * * * *', () => {
+  axios.get('https://nodejs-production-a1dd.up.railway.app/trigger-job')
+    .then((response) => {
+      const responseData = response.data;
+      console.log(`Hourly Trigger URL executed successfully. Response: `, responseData);
+    })
+    .catch((error) => {
+      console.error(`An error occurred while executing Hourly Trigger URL: ${error}`);
+    });
+});
